@@ -1,8 +1,9 @@
-from flask import Flask
-
+from flask import Flask, request
+from keras.models import load_model,
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    return '<h1>Deployed to Heroku</h1>'
+    model = load_model('model.h5')
+    return model.to_json()
