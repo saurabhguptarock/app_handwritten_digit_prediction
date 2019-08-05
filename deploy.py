@@ -3,7 +3,7 @@ from keras.models import load_model
 app = Flask(__name__)
 
 
-@app.route('/<url>', methods=['POST'])
-def index(url):
+@app.route('/', methods=['POST'])
+def index():
     # model = load_model('model.h5')
-    return '<img src={{url}}>'
+    return request.json
