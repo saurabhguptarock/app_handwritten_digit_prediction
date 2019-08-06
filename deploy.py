@@ -27,4 +27,4 @@ def index():
 
     # prediction = 2
     # return jsonify(prediction=prediction)
-    return request.json['image']
+    return request
