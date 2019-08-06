@@ -15,6 +15,7 @@ app = Flask(__name__)
 def index():
     # model = load_model('model.h5')
     img_data = request.json['image']
+    img_data = bytes(img_data, 'utf-8')
     with open("img.png", "wb") as img:
         img.write(decodebytes(img_data))
 
