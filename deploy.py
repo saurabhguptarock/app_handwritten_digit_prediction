@@ -13,7 +13,6 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
 def index():
-    # model = load_model('model.h5')
     img_data = request.json['image']
     img_data = bytes(img_data, 'utf-8')
     with open("img.png", "wb") as img:
@@ -21,6 +20,10 @@ def index():
 
     img = cv2.imread('img.png')
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img = img.reshape((*img.shape, 1))
+
+    # model = load_model('model.h5')
+    # prediction = model.predict(img)
 
     prediction = 2
-    return jsonify(prediction=img.shape[0])
+    return jsonify(prediction=prediction)
