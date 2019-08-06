@@ -22,4 +22,4 @@ def index():
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     prediction = 2
-    return jsonify(prediction=img)
+    return jsonify(prediction=img.shape)
